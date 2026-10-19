@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Altyapı Sağlık Testi | Faddom</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#fff;--fg:#085858;--soft:#EEF6F6;--line:#BFD8D8;--ac:#0E8A8A;--bad:#B4532A;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0A1F1F;--fg:#CFEDED;--soft:#10302F;--line:#1F4A49;--ac:#4FD1C5;--bad:#F0A27A}}
+:root[data-theme="dark"]{--bg:#0A1F1F;--fg:#CFEDED;--soft:#10302F;--line:#1F4A49;--ac:#4FD1C5;--bad:#F0A27A}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:'Space Grotesk',Arial,sans-serif;line-height:1.4}
+.w{max-width:720px;margin:0 auto;padding:24px 20px 40px}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
+.lg{background:#fff;border-radius:10px;padding:6px 10px;display:flex}.lg img{height:28px;display:block}
+.pg{font-weight:700;letter-spacing:2px;font-size:14px}
+h1{font-size:clamp(30px,6vw,46px);line-height:1.1;margin:0 0 14px}
+h2{font-size:clamp(22px,4.5vw,30px);line-height:1.2;margin:0 0 18px}
+p{margin:0 0 18px;font-size:18px}
+.bar{height:6px;background:var(--soft);border-radius:3px;margin-bottom:26px;overflow:hidden}.bar i{display:block;height:100%;background:var(--ac);transition:width .3s}
+.tag{display:inline-block;background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:700;margin-bottom:14px}
+.o{display:block;width:100%;text-align:left;font:inherit;font-size:18px;font-weight:500;color:var(--fg);background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:12px;cursor:pointer}
+.o:hover,.o:focus-visible{border-color:var(--ac);background:var(--soft);outline:none}
+.b{font:inherit;font-weight:700;font-size:18px;background:var(--fg);color:var(--bg);border:0;border-radius:14px;padding:14px 26px;cursor:pointer}
+.ring{display:flex;align-items:center;gap:22px;margin-bottom:24px;flex-wrap:wrap}
+.ring b{font-size:44px;display:block;line-height:1}
+.it{border:1px solid var(--line);border-radius:14px;padding:12px 16px;margin-bottom:10px;background:var(--soft)}
+.it strong{display:flex;justify-content:space-between;gap:10px}.it span{font-size:15px;display:block;margin-top:4px}
+.gap{color:var(--bad)}
+.cta{margin-top:26px;padding:18px;border-radius:16px;border:2px solid var(--fg)}
+a{color:var(--ac);font-weight:700}
+</style></head><body><div class="w">
+<div class="top"><span class="lg"><img src="data:image/png;base64,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" alt="Faddom"></span><span class="pg" id="pg"></span></div>
+<div id="app"></div></div>
+<script>
+var Q=[
+["Haritalama","Kritik uygulamalarınızın hangi sunucu ve servislere bağlı olduğunu güncel bir haritada görebiliyor musunuz?","Faddom, ajan kurmadan uygulama bağımlılıklarını otomatik haritalar."],
+["Değişiklik yönetimi","Bir değişiklik yapmadan önce hangi uygulamaları etkileyeceğini biliyor musunuz?","Faddom kayıtlı baseline ile karşılaştırır ve değişikliğin etkisini önceden gösterir."],
+["Envanter","Sunucu, işletim sistemi ve yazılım envanteriniz otomatik ve güncel mi?","Faddom envanteri VMware, AWS, Azure, Nutanix gibi kaynaklardan otomatik çıkarır."],
+["Kaynak optimizasyonu","Atıl ya da gereğinden fazla tahsis edilmiş CPU ve bellek kaynaklarını tespit ediyor musunuz?","Faddom gerçek kullanıma göre doğru boyutlandırma (rightsizing) önerileri sunar."],
+["Anomali tespiti","Olağan dışı ağ trafiğini (yetkisiz erişim, anormal DNS sorgusu vb.) fark edebiliyor musunuz?","Faddom Lighthouse AI normal davranışı öğrenir ve sapmaları yakalar."],
+["Shadow IT","Unutulmuş ya da yönetilmeyen sunucuların sayısını biliyor musunuz?","Faddom, 7 gündür düşük trafikli ve değişmeyen sunucuları Shadow IT olarak işaretler."]];
+var O=[["Evet, net olarak",2],["Kısmen",1],["Hayır / emin değilim",0]];
+var i=-1,A=[],app=document.getElementById("app"),pg=document.getElementById("pg");
+function start(){i=0;A=[];show()}
+function pick(s){A[i]=s;i++;show()}
+function show(){
+ if(i<0){pg.textContent="";app.innerHTML='<h1>Altyapınızı ne kadar tanıyorsunuz?</h1><p>6 kısa soru, 1 dakika. Hibrit altyapınızdaki görünürlük seviyenizi ölçün.</p><button class="b" onclick="start()">Teste başla</button>';return}
+ if(i>=Q.length){result();return}
+ pg.textContent="0"+(i+1)+" / 0"+Q.length;
+ var h='<div class="bar"><i style="width:'+(i/Q.length*100)+'%"></i></div><span class="tag">'+Q[i][0]+'</span><h2>'+Q[i][1]+'</h2>';
+ O.forEach(function(o){h+='<button class="o" onclick="pick('+o[1]+')">'+o[0]+'</button>'});
+ app.innerHTML=h}
+function result(){
+ pg.textContent="SONUÇ";
+ var t=A.reduce(function(a,b){return a+b},0),max=Q.length*2,L=t<=4?"Görünmez bölge":t<=8?"Yolun ortasında":"İyi yönetilen";
+ var M=t<=4?"Altyapınızda ciddi kör noktalar olabilir.":t<=8?"Temel görünürlük var, ama boşluklar kalmış.":"Güçlü bir görünürlüğünüz var. Boşlukları kapatarak ilerleyin.";
+ var pct=Math.round(t/max*100),c=2*Math.PI*54,d=c*t/max;
+ var h='<div class="ring"><svg width="130" height="130" viewBox="0 0 130 130"><circle cx="65" cy="65" r="54" fill="none" stroke="var(--soft)" stroke-width="12"/><circle cx="65" cy="65" r="54" fill="none" stroke="var(--ac)" stroke-width="12" stroke-linecap="round" stroke-dasharray="'+d+' '+c+'" transform="rotate(-90 65 65)"/></svg><div><span style="display:block;font-size:15px;font-weight:700;margin-bottom:4px">Görünürlük seviyeniz</span><b>%'+pct+'</b><h2 style="margin:6px 0 4px">'+L+'</h2><span>'+M+'</span></div></div>';
+ Q.forEach(function(q,k){var s=A[k],g=s<2;
+  h+='<div class="it"><strong><span style="margin:0;font-size:17px">'+q[0]+'</span><span class="'+(g?'gap':'')+'" style="margin:0;font-size:15px">'+(s==2?"Güçlü":s==1?"Geliştirilebilir":"Boşluk")+'</span></strong>'+(g?'<span>'+q[2]+'</span>':'')+'</div>'});
+ h+='<div class="cta"><p style="margin-bottom:10px"><b>Boşlukları kapatmak için Faddom\'u deneyin.</b> Ajan kurmadan dakikalar içinde ortamınızın haritasını çıkarır.</p><a href="https://faddom.com" target="_blank" rel="noopener">faddom.com</a> &nbsp;|&nbsp; <a href="https://itss.com.tr" target="_blank" rel="noopener">itss.com.tr</a></div><p style="margin-top:20px"><button class="b" onclick="i=-1;show()">Testi tekrarla</button></p>';
+ app.innerHTML=h}
+show();
+</script></body></html>
